@@ -3,6 +3,7 @@ import { Row, Col, Menu } from 'antd'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
+import { callbackify } from 'util';
 
 const StyledButton = withStyles(theme => ({
   root: {
@@ -21,7 +22,26 @@ const StyledButton = withStyles(theme => ({
 
 
 export default class Home extends Component {
+  state = {
+    mouseX: 0,
+    mouseY: 0
+  }
+
+  mouseMoveHandle = (e) => {
+    const { offsetX, offsetY } = e.nativeEvent;
+    const { mouseX, mouseY } = this.state;
+    if ((Math.abs(offsetX - mouseX) > 20) || (Math.abs(offsetY - mouseY) > 20)) {
+      this.setState({ 
+        mouseX: offsetX, 
+        mouseY: offsetY
+      });
+    }
+    
+  }
+
   render() {
+    const { mouseX, mouseY } = this.state;
+
     return (
       <div className="section sectionOne">
         <Row className="nav-bar" type="flex" justify="start" align="middle">
@@ -37,9 +57,64 @@ export default class Home extends Component {
           </Col>
           <Col span={9}></Col>
         </Row>
-
+        <div className="parallax-container" onMouseMove={this.mouseMoveHandle}>
+          <AnimatedContainer
+            top={21}
+            left={545}
+            mouseX={mouseX} 
+            mouseY={mouseY} 
+            alpha={-0.1}
+          >
+            <img src="static/shape/shape-1.png" alt="Shape"/>
+          </AnimatedContainer>
+          <AnimatedContainer
+            top={3}
+            left={65}
+            mouseX={mouseX} 
+            mouseY={mouseY} 
+            alpha={-0.1}
+          >
+            <img src="static/shape/shape-2.png" alt="Shape"/>
+          </AnimatedContainer>
+          <AnimatedContainer
+            top={213}
+            left={454}
+            mouseX={mouseX} 
+            mouseY={mouseY} 
+            alpha={-0.1}
+          >
+            <img src="static/shape/shape-3.png" alt="Shape"/>
+          </AnimatedContainer>
+          <AnimatedContainer
+            top={23}
+            left={65}
+            mouseX={mouseX} 
+            mouseY={mouseY} 
+            alpha={-0.1}
+          >
+            <img src="static/shape/shape-4.png" alt="Shape"/>
+          </AnimatedContainer>
+          <AnimatedContainer
+            top={43}
+            left={767}
+            mouseX={mouseX} 
+            mouseY={mouseY} 
+            alpha={-0.1}
+          >
+            <img src="static/shape/shape-4.png" alt="Shape"/>
+          </AnimatedContainer>
+          <AnimatedContainer
+            top={343}
+            left={45}
+            mouseX={mouseX} 
+            mouseY={mouseY} 
+            alpha={-0.1}
+          >
+            <img src="static/shape/shape-4.png" alt="Shape"/>
+          </AnimatedContainer>
+        </div>
         <Row type="flex" justify="center" align="bottom">
-          <Content span={8}>
+          <Content span={8} onMouseMove={this.mouseMoveHandle}>
             <Blank></Blank>
             <Greeting>Hello, I'm</Greeting>
             <Name>Thuy Hoang</Name>
@@ -99,6 +174,15 @@ const Blank = styled.div`
 
 const Content = styled(Col)`
   padding-left: 10px;
+`;
+
+const AnimatedContainer = styled.div`
+  position: absolute;
+  top: ${props => props.top + "px"} ;
+  left: ${props => props.left + "px"} ;
+  transform: translate(${props => (props.mouseX * props.alpha) + "px"}, ${props => (props.mouseY * props.alpha) + "px"});
+  transition: transform 0.5s;
+
 `;
 
 

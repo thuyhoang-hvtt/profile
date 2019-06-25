@@ -10,7 +10,7 @@ module.exports = withSass(withCSS({
     config.resolve.alias = {
       ...config.resolve.alias,
       components: path.resolve(__dirname, "components/"),
-      assets: path.resolve(__dirname, "assets/"),
+      static: path.resolve(__dirname, "static/"),
       scss: path.resolve(__dirname, "scss/")
     };
 
