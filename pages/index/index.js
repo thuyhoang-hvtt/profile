@@ -1,9 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import stylesheet from 'antd/dist/antd.css'
 
-const Home = (props) => (
-  <div>
+// style scss
+import 'scss/app.scss'
+import OnePage from '../../components/OnePage';
+
+const App = (props) => (
+  <div className="app">
     <Head>
       <meta charSet="UTF-8" />
       <title>Hello, NextJS!!!</title>
@@ -30,10 +35,11 @@ const Home = (props) => (
       <meta property="og:image:height" content="630" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
     </Head>
 
-    <div>Hello, Shin!</div>
+    <OnePage/>
   </div>
 )
 
-export default Home
+export default App
