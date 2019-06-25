@@ -14,37 +14,33 @@
   width: 100%;
 
   .bg-top {
-    background-image: url("/static/header.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url("/static/header.png") no-repeat;
+    background-size: contain;
     align-items: flex-start;
     width: 100%;
-    min-height: 1080px;
+    height: 1111px;
   }
 
   .bg-bottom {
     position: absolute;
     background-image: url("/static/footer.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     align-items: flex-start;
     width: 100%;
-    min-height: 1080px;
+    height: 1500px;
     bottom: 0;
   }
 }
 
 .section {
   background: transparent;
-  padding: 32px 16px;
   position: relative;
-
   strong {
     font-weight: 900;
   }
 }
 
 .sectionOne {
-  padding-top: 48px;
   
 }

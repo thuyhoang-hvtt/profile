@@ -8,12 +8,12 @@ const StyledButton = withStyles(theme => ({
   root: {
     color: '#fff',
     backgroundColor: '#754ef9',
+    border: '1px solid #754ef9',
     borderRadius: '32px',
     boxShadow: '0 1px 5px 0 rgb(117, 78, 249, 0.6)',
     padding: '12px 32px',
     '&:hover': {
       backgroundColor: '#fff',
-      border: '1px solid #754ef9',
       color: '#754ef9'
     }
   }
@@ -48,6 +48,8 @@ export default class Home extends Component {
           </Content>
           <Col span={8}></Col>
         </Row>
+        <Blank></Blank>
+
       </div>
     )
   }
