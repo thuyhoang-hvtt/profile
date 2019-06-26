@@ -6,6 +6,7 @@ import stylesheet from 'antd/dist/antd.css'
 // style scss
 import 'scss/app.scss'
 import OnePage from '../../components/OnePage';
+import NavBar from '../../components/NavBar';
 
 const App = (props) => (
   <div className="app">
@@ -37,7 +38,7 @@ const App = (props) => (
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
     </Head>
-
+    <NavBar/>
     <OnePage/>
   </div>
 )

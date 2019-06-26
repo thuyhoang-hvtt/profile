@@ -43,78 +43,41 @@ export default class Home extends Component {
     const { mouseX, mouseY } = this.state;
 
     return (
-      <div className="section sectionOne">
-        <Row className="nav-bar" type="flex" justify="start" align="middle">
-          <Col span={3}/>
-          <Col span={10}>
-          <FlexMenu mode="horizontal" defaultSelectedKeys={['1']}>
-            <Menu.Item key='1'>Home</Menu.Item>
-            <Menu.Item key='2'>About Me</Menu.Item>
-            <Menu.Item key='3'>Portforlio</Menu.Item>
-            <Menu.Item key='4'>Blog</Menu.Item>
-            <Menu.Item key='5'>Contact</Menu.Item>
-          </FlexMenu>
-          </Col>
-          <Col span={9}></Col>
-        </Row>
-        <div className="parallax-container" onMouseMove={this.mouseMoveHandle}>
+      <div className="section sectionOne" onMouseMove={this.mouseMoveHandle}>
+        
+        <div className="parallax-container">
           <AnimatedContainer
-            top={21}
-            left={545}
-            mouseX={mouseX} 
-            mouseY={mouseY} 
-            alpha={-0.1}
+            style={{
+              transform: `translate(${mouseX * -0.01 + "px"}, ${mouseY * -0.01 + "px"})`,
+              top: 20,
+              left: 20
+            }}
           >
-            <img src="static/shape/shape-1.png" alt="Shape"/>
+            <Shape style={{ top: 30, left: 40 }} src="static/shape/shape-1.png" alt="Shape"/>
+            <Shape style={{ bottom: 30 , left: "calc(50% + 100px)"}} src="static/shape/shape-6.png" alt="Shape"/>
+            <Shape style={{ bottom: 50 , left: 100 }} src="static/shape/shape-3.png" alt="Shape"/>
+            <Shape style={{ bottom: 100, right: 10 }} src="static/shape/shape-2.png" alt="Shape"/>
+            <Shape style={{ top: 70, right: '25%' }} src="static/shape/shape-4.png" alt="Shape"/>
           </AnimatedContainer>
+          
           <AnimatedContainer
-            top={3}
-            left={65}
-            mouseX={mouseX} 
-            mouseY={mouseY} 
-            alpha={-0.1}
+            style={{
+              transform: `translate(${mouseX * -0.04 + "px"}, ${mouseY * -0.03 + "px"})`,
+              top: 20,
+              left: 20
+            }}
           >
-            <img src="static/shape/shape-2.png" alt="Shape"/>
-          </AnimatedContainer>
-          <AnimatedContainer
-            top={213}
-            left={454}
-            mouseX={mouseX} 
-            mouseY={mouseY} 
-            alpha={-0.1}
-          >
-            <img src="static/shape/shape-3.png" alt="Shape"/>
-          </AnimatedContainer>
-          <AnimatedContainer
-            top={23}
-            left={65}
-            mouseX={mouseX} 
-            mouseY={mouseY} 
-            alpha={-0.1}
-          >
-            <img src="static/shape/shape-4.png" alt="Shape"/>
-          </AnimatedContainer>
-          <AnimatedContainer
-            top={43}
-            left={767}
-            mouseX={mouseX} 
-            mouseY={mouseY} 
-            alpha={-0.1}
-          >
-            <img src="static/shape/shape-4.png" alt="Shape"/>
-          </AnimatedContainer>
-          <AnimatedContainer
-            top={343}
-            left={45}
-            mouseX={mouseX} 
-            mouseY={mouseY} 
-            alpha={-0.1}
-          >
-            <img src="static/shape/shape-4.png" alt="Shape"/>
+            
+            <Shape style={{ top: 0, left: 500 }} src="static/shape/shape-2.png" alt="Shape"/>
+            <Shape style={{ bottom: 150, left: "calc(50% - 150px)" }} src="static/shape/shape-1.png" alt="Shape"/>
+            <Shape style={{ bottom: "calc(50% + 70px )", left: "calc(50% + 90px)" }} src="static/shape/shape-4.png" alt="Shape"/>
+            <Shape style={{ top: 0 , right: 20 }} src="static/shape/shape-3.png" alt="Shape"/>
+            <Shape style={{ top: 250, left: 64 }} src="static/shape/shape-6.png" alt="Shape"/>
+            
           </AnimatedContainer>
         </div>
         <Row type="flex" justify="center" align="bottom">
-          <Content span={8} onMouseMove={this.mouseMoveHandle}>
+          <Content span={8}>
             <Blank></Blank>
             <Greeting>Hello, I'm</Greeting>
             <Name>Thuy Hoang</Name>
@@ -130,22 +93,7 @@ export default class Home extends Component {
   }
 }
 
-const FlexMenu = styled(Menu)`
-  background: transparent;
-  border-bottom: none;
-  display: flex;
-  justify-content: space-around;
 
-  .ant-menu-item {
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 500;
-    &.ant-menu-item-active, &.ant-menu-item-selected {
-      color: #754ef9;
-      border-bottom: 2px solid #754ef9;
-    }
-  }
-`;
 
 const Greeting = styled.h4`
   font-size: 30px;
@@ -178,11 +126,20 @@ const Content = styled(Col)`
 
 const AnimatedContainer = styled.div`
   position: absolute;
-  top: ${props => props.top + "px"} ;
+  top: 0px;
+  left: 0px;
+  /* top: ${props => props.top + "px"} ;
   left: ${props => props.left + "px"} ;
-  transform: translate(${props => (props.mouseX * props.alpha) + "px"}, ${props => (props.mouseY * props.alpha) + "px"});
+  transform: translate(${props => (props.mouseX * props.alpha) + "px"}, ${props => (props.mouseY * props.alpha) + "px"}); */
   transition: transform 0.5s;
-
+  transform-style: preserve-3d;
+  display: flex;
+  width: 90%;
+  height: 90%;
 `;
 
+
+const Shape = styled.img`
+  position: absolute;
+`;
 

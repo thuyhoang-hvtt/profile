@@ -4,3 +4,16 @@ body {
     font-family: 'Poppins', sans-serif;
   }
 }
+
+.app {
+  width: 100%; 
+  position: relative;
+  display: flex;
+}
+
+.nav-bar {
+  position: absolute;
+  width: 100%;
+  z-index: 1100;
+  top: 56px;
+}
