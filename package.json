@@ -12,6 +12,7 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "antd": "^3.19.8",
+    "font-awesome": "^4.7.0",
     "next": "^8.1.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",

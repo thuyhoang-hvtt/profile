@@ -6,6 +6,7 @@ import "scss/one-page.scss";
 
 // Components
 import Home from "./Home";
+import AboutMe from "./AboutMe";
 
 export default class OnePage extends Component {
   render() {
@@ -19,7 +20,7 @@ export default class OnePage extends Component {
                 <div className="bg-bottom"/>
               </div>
               <Home />
-              <div className="section">Ha</div>
+              <AboutMe/>
               <div className="section">Haha</div>
               <div className="section">Haha</div>
               <div className="section">Haha</div>

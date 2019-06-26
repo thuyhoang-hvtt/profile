@@ -39,6 +39,7 @@ export default class Home extends Component {
     
   }
 
+
   render() {
     const { mouseX, mouseY } = this.state;
 
@@ -48,9 +49,9 @@ export default class Home extends Component {
         <div className="parallax-container">
           <AnimatedContainer
             style={{
-              transform: `translate(${mouseX * -0.01 + "px"}, ${mouseY * -0.01 + "px"})`,
-              top: 20,
-              left: 20
+              transform: `translate(${mouseX * -0.03 + "px"}, ${mouseY * -0.03 + "px"})`,
+              top: 30,
+              left: 30
             }}
           >
             <Shape style={{ top: 30, left: 40 }} src="static/shape/shape-1.png" alt="Shape"/>
@@ -62,16 +63,16 @@ export default class Home extends Component {
           
           <AnimatedContainer
             style={{
-              transform: `translate(${mouseX * -0.04 + "px"}, ${mouseY * -0.03 + "px"})`,
-              top: 20,
-              left: 20
+              transform: `translate(${mouseX * -0.07 + "px"}, ${mouseY * -0.06 + "px"})`,
+              top: 40,
+              left: 50
             }}
           >
             
             <Shape style={{ top: 0, left: 500 }} src="static/shape/shape-2.png" alt="Shape"/>
             <Shape style={{ bottom: 150, left: "calc(50% - 150px)" }} src="static/shape/shape-1.png" alt="Shape"/>
             <Shape style={{ bottom: "calc(50% + 70px )", left: "calc(50% + 90px)" }} src="static/shape/shape-4.png" alt="Shape"/>
-            <Shape style={{ top: 0 , right: 20 }} src="static/shape/shape-3.png" alt="Shape"/>
+            <Shape style={{ top: 0 , right: 0 }} src="static/shape/shape-3.png" alt="Shape"/>
             <Shape style={{ top: 250, left: 64 }} src="static/shape/shape-6.png" alt="Shape"/>
             
           </AnimatedContainer>

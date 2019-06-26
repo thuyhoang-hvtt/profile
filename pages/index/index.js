@@ -5,6 +5,8 @@ import stylesheet from 'antd/dist/antd.css'
 
 // style scss
 import 'scss/app.scss'
+
+// components
 import OnePage from '../../components/OnePage';
 import NavBar from '../../components/NavBar';
 
