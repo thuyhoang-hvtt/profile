@@ -11,7 +11,7 @@ module.exports = withSass(withCSS({
       ...config.resolve.alias,
       components: path.resolve(__dirname, "components/"),
       static: path.resolve(__dirname, "static/"),
-      scss: path.resolve(__dirname, "scss/")
+      scss: path.resolve(__dirname, "scss/"),
     };
 
     return config;

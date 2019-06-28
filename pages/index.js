@@ -7,8 +7,8 @@ import stylesheet from 'antd/dist/antd.css'
 import 'scss/app.scss'
 
 // components
-import OnePage from '../../components/OnePage';
-import NavBar from '../../components/NavBar';
+import OnePage from './OnePage';
+import NavBar from 'components/NavBar';
 
 const App = (props) => (
   <div className="app">
