@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import { Row, Col, Menu } from 'antd'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
 
-export default class NavBar extends Component {
+class NavBar extends Component {
   render() {
+    console.log(this.props.section);
+    const { index, anchor } = this.props.section;
     return (
-      <NavigationContainer className="nav-bar" type="flex" justify="start" align="middle">
+      <NavigationContainer className="nav-bar" type="flex" justify="start" align="middle" index={index}>
           <Col span={3}/>
           <Col span={10}>
-          <FlexMenu mode="horizontal" defaultSelectedKeys={['1']}>
-            <Menu.Item key='1'>Home</Menu.Item>
-            <Menu.Item key='2'>About Me</Menu.Item>
-            <Menu.Item key='3'>Portforlio</Menu.Item>
-            <Menu.Item key='4'>Blog</Menu.Item>
-            <Menu.Item key='5'>Contact</Menu.Item>
+          <FlexMenu mode="horizontal" selectedKeys={[anchor]}>
+            <Menu.Item key='home'>Home</Menu.Item>
+            <Menu.Item key='about-me'>About Me</Menu.Item>
+            <Menu.Item key='portforlio'>Portforlio</Menu.Item>
+            <Menu.Item key='blog'>Blog</Menu.Item>
+            <Menu.Item key='contact'>Contact</Menu.Item>
           </FlexMenu>
           </Col>
           <Col span={9}></Col>
@@ -44,5 +47,18 @@ const NavigationContainer = styled(Row)`
   position: absolute;
   width: 100%;
   z-index: 1100;
-  top: 56px;
+  height: ${props => props.index > 0 ? (props.index > 4 ? '0px' : '84px') : '108px'};
+  box-shadow: 0 7px 7px 0 rgb(117, 78, 249, 0.2);
+  background: rgb(255, 255, 255, 0.4);
+  visibility: ${props => props.index > 4 ? "hidden" : "visible"};
+  transition: all 0.3s ease-in;
 `;
+
+
+const mapStateToProps = state => {
+  return {
+    section: state.root.section
+  }
+}
+
+export default connect(mapStateToProps)(NavBar);

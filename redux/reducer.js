@@ -18,6 +18,13 @@ const reducer = (state = initialState, action) => {
           mouseY: action.mouse.Y
         }
       });
+    case 'CHANGE_SECTION': 
+      return Object.assign({}, state, {
+        section: {
+          index: action.section.index,
+          anchor: action.section.anchor
+        }
+      })
     default: 
       return state;
   }

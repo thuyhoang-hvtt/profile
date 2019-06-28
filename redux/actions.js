@@ -4,3 +4,10 @@ export const mouseMove = mouse => {
     dispatch({ type: 'MOUSE_MOVE', mouse })
   }
 }
+
+export const changeSection = section => {
+  console.log('CHANGE_SECTION');
+  return (dispatch, getState) => {
+    dispatch({ type: 'CHANGE_SECTION', section })
+  }
+}

@@ -8,7 +8,8 @@ import { bindActionCreators } from 'redux';
 
 import { mouseMove } from '../redux/actions';
 
-import Paralllax from '../components/Paralllax';
+import Parallax from '../components/Parallax';
+
 
 
 const StyledButton = withStyles(theme => ({
@@ -39,8 +40,9 @@ class Home extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return false;
+    return nextState !== this.state;
   }
+  
    
   componentDidUpdate(prevProps, prevState) {
     console.log('[HOME] updated!!');
@@ -51,8 +53,7 @@ class Home extends Component {
 
     return (
       <div className="section sectionOne" onMouseMove={this.mouseMoveHandle}>
-        
-        <Paralllax/>
+        <Parallax/>
         <Row type="flex" justify="center" align="bottom">
           <Content span={8}>
             <Blank></Blank>

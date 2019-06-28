@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-class Paralllax extends Component {
+class Parallax extends Component {
   render() {
     const { mouseX, mouseY } = this.props.parallax;
     return (
@@ -64,4 +64,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Paralllax);
+export default connect(mapStateToProps)(Parallax);
