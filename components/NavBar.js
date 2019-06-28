@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export default class NavBar extends Component {
   render() {
     return (
-      <Row className="nav-bar" type="flex" justify="start" align="middle">
+      <NavigationContainer className="nav-bar" type="flex" justify="start" align="middle">
           <Col span={3}/>
           <Col span={10}>
           <FlexMenu mode="horizontal" defaultSelectedKeys={['1']}>
@@ -17,7 +17,7 @@ export default class NavBar extends Component {
           </FlexMenu>
           </Col>
           <Col span={9}></Col>
-        </Row>
+        </NavigationContainer>
     )
   }
 }
@@ -37,4 +37,12 @@ const FlexMenu = styled(Menu)`
       border-bottom: 2px solid #754ef9;
     }
   }
+`;
+
+
+const NavigationContainer = styled(Row)`
+  position: absolute;
+  width: 100%;
+  z-index: 1100;
+  top: 56px;
 `;

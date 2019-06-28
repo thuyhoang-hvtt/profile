@@ -3,7 +3,7 @@ import { Row, Col, Menu } from 'antd'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
-import { callbackify } from 'util';
+
 
 const StyledButton = withStyles(theme => ({
   root: {
@@ -129,9 +129,6 @@ const AnimatedContainer = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
-  /* top: ${props => props.top + "px"} ;
-  left: ${props => props.left + "px"} ;
-  transform: translate(${props => (props.mouseX * props.alpha) + "px"}, ${props => (props.mouseY * props.alpha) + "px"}); */
   transition: transform 0.5s;
   transform-style: preserve-3d;
   display: flex;
