@@ -8,6 +8,7 @@ import "scss/one-page.scss";
 // Components
 import Home from "./Home";
 import AboutMe from "./AboutMe";
+import NavBar from "components/NavBar";
 
 import { changeSection } from '../redux/actions';
 import { connect } from "react-redux";
@@ -36,7 +37,7 @@ class OnePage extends Component {
                 <div className="bg-top" />
                 <div className="bg-bottom" />
               </div>
-              <Home />
+              <Home/>
               <AboutMe />
               <div className="section">Haha</div>
               <div className="section">Haha</div>

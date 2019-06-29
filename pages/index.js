@@ -40,7 +40,7 @@ const App = props => (
       />
       <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
     </Head>
-    <NavBar />
+    <NavBar/>
     <OnePage />
   </div>
 );

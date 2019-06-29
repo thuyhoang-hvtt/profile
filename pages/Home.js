@@ -47,6 +47,15 @@ class Home extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log('[HOME] updated!!');
   }
+
+  componentDidMount() {
+    console.log('[HOME] did Mount!!');
+  }
+  
+  
+  componentWillUnmount() {
+    console.log('[Home] will Unmount!!');
+  }
   
 
   render() {
