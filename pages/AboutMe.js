@@ -31,7 +31,7 @@ export default class AboutMe extends Component {
         <Row
           style={{ minHeight: 700 }}
           type="flex"
-          justify="center"
+          justify="space-around"
           align="bottom"
           gutter={64}
         >
@@ -92,21 +92,21 @@ export default class AboutMe extends Component {
             <Row type="flex" justify="center" align="middle">
               <Content span={12}>
                 <Info variant="body1">
-                  <CalendarTodayOutlined style={{ fontSize: 16, margin: 8 }} /> Birth:
+                  <CalendarTodayOutlined style={{ fontSize: 16, margin: 8 }} />Birth:
                   <Text>July 7th, 1999</Text>
                 </Info>
                 <Info variant="body1">
-                  <LocationCityOutlined style={{ fontSize: 16, margin: 8 }} /> Address:
+                  <LocationCityOutlined style={{ fontSize: 16, margin: 8 }} />Address:
                   <Text>Phu Nhuan District, HCM City</Text>
                 </Info>
               </Content>
               <Content span={12}>
                 <Info variant="body1">
-                  <MailOutline style={{ fontSize: 16, margin: 8 }} /> Email:
+                  <MailOutline style={{ fontSize: 16, margin: 8 }} />Email:
                   <Text>thuyhoang.hvtt@gmail.com</Text>
                 </Info>
                 <Info variant="body1">
-                  <PhoneAndroidOutlined style={{ fontSize: 16, margin: 8 }} /> Phone:
+                  <PhoneAndroidOutlined style={{ fontSize: 16, margin: 8 }} />Phone:
                   <Text>(+84) 353 711 771</Text>
                 </Info>
               </Content>

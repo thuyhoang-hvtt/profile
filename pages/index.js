@@ -39,6 +39,7 @@ const App = props => (
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
       />
       <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+      <script src="/static/scrolloverflow.js" />
     </Head>
     <NavBar/>
     <OnePage />

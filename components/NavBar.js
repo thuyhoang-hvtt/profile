@@ -5,24 +5,23 @@ import { connect } from 'react-redux';
 
 class NavBar extends Component {
   render() {
-    console.log(this.props.section);
     const { index, anchor } = this.props.section;
     return (
       <NavigationContainer className="nav-bar" type="flex" justify="start" align="middle" index={index}>
           <Col span={3}/>
-          <Col span={10}>
-          <FlexMenu mode="horizontal" selectedKeys={[anchor]}>
+          <Col span={12}>
+          <FlexMenu mode="horizontal" defaultSelectedKeys={['home']} selectedKeys={[anchor]}>
             <Menu.Item type='home' key='home'>
               <NavLink href="/#home">Home</NavLink>
             </Menu.Item>
             <Menu.Item type='about-me' key='about-me'>
               <NavLink href="/#about-me">About Me</NavLink>
             </Menu.Item>
+            <Menu.Item type='service' key='service'>
+              <NavLink href="/#service">My Service</NavLink>
+            </Menu.Item>
             <Menu.Item type='portforlio' key='portforlio'>
               <NavLink href="/#portforlio">Portforlio</NavLink>
-            </Menu.Item>
-            <Menu.Item type='blog' key='blog'>
-              <NavLink href="/#blog">Blog</NavLink>
             </Menu.Item>
             <Menu.Item type='contact' key='contact'>
               <NavLink href="/#contact">Contact</NavLink>
@@ -60,9 +59,15 @@ const NavigationContainer = styled(Row)`
   position: absolute;
   width: 100%;
   z-index: 1100;
-  height: ${props => props.index > 0 ? (props.index > 4 ? '0px' : '84px') : '108px'};
-  box-shadow: 0 7px 7px 0 rgb(117, 78, 249, 0.2);
-  background: rgb(255, 255, 255, 0.4);
+  ${props => props.index > 0 ? `
+    height: 84px;
+    box-shadow: 0 7px 7px 0 rgb(117, 78, 249, 0.2);
+    background: rgb(255, 255, 255, 0.4);
+  ` : `
+    height: 108px;
+  `
+  }
+  
   top: ${props => props.index > 4 ? "-84px" : "0px"};
   transition: all 0.3s ease-in;
 `;

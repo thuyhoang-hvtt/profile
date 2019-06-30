@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
 import { bindActionCreators } from 'redux';
+
 
 // Style-sheet
 import "scss/one-page.scss";
@@ -8,10 +8,12 @@ import "scss/one-page.scss";
 // Components
 import Home from "./Home";
 import AboutMe from "./AboutMe";
-import NavBar from "components/NavBar";
+import Service from "./Service";
 
 import { changeSection } from '../redux/actions';
 import { connect } from "react-redux";
+
+import ReactFullpage from "@fullpage/react-fullpage";
 
 
 class OnePage extends Component {
@@ -19,17 +21,19 @@ class OnePage extends Component {
     const { index, anchor } = destination;
     this.props.changeSection({ index, anchor });
   }
-  afterLoad(origin, destination, direction) {
-    
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      require('fullpage.js/vendors/scrolloverflow');
+    }
   }
 
   render() {
     return (
       <ReactFullpage
-        navigation
-        anchors={["home", "about-me", "portforlio", "blog", "contact", "footer"]}
+        anchors={["home", "about-me", "service", "portforlio", "contact", "footer"]}
         onLeave={this.onLeave.bind(this)}
-        afterLoad={this.afterLoad.bind(this)}
+        scrollOverflow={true}
         render={({ fullpageApi }) => (
           <ReactFullpage.Wrapper>
             <div className="onepage-container">
@@ -39,7 +43,7 @@ class OnePage extends Component {
               </div>
               <Home/>
               <AboutMe />
-              <div className="section">Haha</div>
+              <Service/>
               <div className="section">Haha</div>
               <div className="section">Haha</div>
               <div className="section">Haha</div>
