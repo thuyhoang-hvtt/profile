@@ -14,6 +14,7 @@ import { changeSection } from '../redux/actions';
 import { connect } from "react-redux";
 
 import ReactFullpage from "@fullpage/react-fullpage";
+import Contact from "./Contact";
 
 
 class OnePage extends Component {
@@ -39,13 +40,12 @@ class OnePage extends Component {
             <div className="onepage-container">
               <div className="container-background">
                 <div className="bg-top" />
-                <div className="bg-bottom" />
               </div>
               <Home/>
               <AboutMe />
               <Service/>
               <div className="section">Haha</div>
-              <div className="section">Haha</div>
+              <Contact/>
               <div className="section">Haha</div>
             </div>
           </ReactFullpage.Wrapper>
