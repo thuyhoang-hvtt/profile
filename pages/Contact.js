@@ -2,16 +2,11 @@ import React, { Component } from "react";
 import {
   Grid,
   Typography,
-  Paper,
   Card,
-  FormControl,
-  InputLabel,
-  FilledInput,
-  TextField
+  TextField,
+  Button
 } from "@material-ui/core";
-import { withStyles, createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import { deepPurple } from "@material-ui/core/colors";
+import { withStyles } from "@material-ui/core/styles";
 import {
   LocalPhoneOutlined,
   LocationOnOutlined,
@@ -37,16 +32,52 @@ const StyledText = withStyles(theme => ({
   }
 }))(TextField);
 
+const StyledButton = withStyles(theme => ({
+  root: {
+    color: '#fff',
+    backgroundColor: '#754ef9',
+    border: '1px solid #754ef9',
+    borderRadius: '32px',
+    boxShadow: '0 1px 5px 0 rgb(117, 78, 249, 0.6)',
+    padding: '12px 32px',
+    '&:hover': {
+      backgroundColor: '#fff',
+      color: '#754ef9'
+    }
+  }
+}))(Button);
+
 class ContactForm extends React.Component {
   state = {
     name: "",
     email: "",
-    message: ""
+    message: "",
+    error: false
   };
 
+  sendMessageHandle = (e) => {
+    const { name, email, message } = this.state;
+    if ( name && email && message ) {
+      console.log('Message was sent!');
+    }
+    else {
+      this.setState({
+        error: true
+      })
+    }
+  }
+
   onChangeHandle = e => {
-    console.log(e);
-  };
+    this.setState({
+      [e.target.id]: e.target.value,
+      error: false
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.state);
+  }
+  
 
   render() {
     const { name, email, message } = this.state;
@@ -59,27 +90,36 @@ class ContactForm extends React.Component {
             margin="dense"
             variant="filled"
             fullWidth
+            onChange={this.onChangeHandle}
           />
         </Grid>
         <Grid item xs={12} style={{ marginBottom: 16 }}>
           <StyledText
-            id="emmail"
+            id="email"
             label="Email"
             margin="dense"
             variant="filled"
             fullWidth
+            onChange={this.onChangeHandle}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ marginBottom: 8 }}>
           <StyledText
             id="message"
             label="Message"
             margin="dense"
             variant="filled"
             fullWidth
+            onChange={this.onChangeHandle}
             multiline
             rows={4}
           />
+        </Grid>
+        <Grid item xs={12} style={{ minHeight: 32 }}>
+          <Typography color="error">{this.state.error && "Please check your message!"}</Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <StyledButton onClick={this.sendMessageHandle}>Send</StyledButton>
         </Grid>
       </Grid>
     );
@@ -90,7 +130,7 @@ export default class Contact extends Component {
   render() {
     return (
       <div className="section sectionFive">
-        <Grid container justify="center" alignItems="center" spacing={3} style={{ marginTop: 100 }}>
+        <Grid container justify="center" alignItems="center" spacing={3} style={{ margin: '100px 0' }}>
           <Grid item xs={12}>
             <Typography variant="h3" gutterBottom align="center">
               Get In Touch
@@ -172,3 +212,5 @@ const ContactCard = styled(Card)`
   min-height: 230px;
   padding: 32px;
 `;
+
+
