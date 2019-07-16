@@ -4,7 +4,8 @@ import {
   Typography,
   Card,
   TextField,
-  Button
+  Button,
+  Fab
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
@@ -14,6 +15,7 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import GoogleMaps from "../components/GoogleMaps";
+import { FaFacebook, FaGithub, FaPinterest, FaLinkedin } from 'react-icons/lib/fa';
 
 const StyledText = withStyles(theme => ({
   root: {
@@ -46,6 +48,17 @@ const StyledButton = withStyles(theme => ({
     }
   }
 }))(Button);
+
+const StyledFab = withStyles(theme => ({
+  root: {
+    backgroundColor: 'rgb(28, 41, 64)',
+    boxShadow: '0 1px 5px 0 rgb(28, 41, 64, 0.6)',
+    margin: 16,
+    '&:hover': {
+      backgroundColor: '#754ef9',
+    }
+  }
+}))(Fab);
 
 class ContactForm extends React.Component {
   state = {
@@ -202,6 +215,24 @@ export default class Contact extends Component {
             <GoogleMaps style={{ top: '-50px'}} />
           </Grid>
         </Grid>
+        <Grid container>
+          <Grid item xs={12} style={{ background: 'rgb(21, 33, 54)', padding: '120px 0', color: 'white' }}>
+            <Typography align="center" variant="h6" gutterBottom color="inherit">Kimi no Suizou wo Tabetai</Typography>
+            <Typography align="center">Life is a connection with somebody:</Typography>
+            <Typography align="center">Be interested in someone else, be falling in love with someone else,</Typography>
+            <Typography align="center">Be angry, be happy when sitting beside him.</Typography>
+            <Typography align="center" gutterBottom>Holding that one's hand and living inside the death.</Typography>
+            <Grid container alignItems="center" justify="center">
+              <StyledFab><FaFacebook style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
+              <StyledFab><FaGithub style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
+              <StyledFab><FaPinterest style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
+              <StyledFab><FaLinkedin style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} alignContent="center" style={{ background: 'rgb(28, 41, 64)'}}>
+            <Typography align="center" style={{ color: 'white', margin: '16px 0' }}>Copyright © 2019. All rights reserved by Zeno!</Typography>
+          </Grid>
+        </Grid>
       </div>
     );
   }
@@ -212,5 +243,6 @@ const ContactCard = styled(Card)`
   min-height: 230px;
   padding: 32px;
 `;
+
 
 

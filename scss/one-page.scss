@@ -82,7 +82,28 @@
   background: rgb(240, 240, 240);
 }
 
+.sectionFour {
+  height: 1vh;
+
+  .ant-carousel {
+
+    .slick-slide {
+      text-align: center;
+      height: 798px;
+      line-height: 798px;
+      background: #364d79;
+      overflow: hidden;
+    }
+  }
+}
+
 .sectionFive {
   background: rgb(240, 240, 240);
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 

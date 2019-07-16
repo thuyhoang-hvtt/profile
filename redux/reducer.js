@@ -4,6 +4,7 @@ const initialState = {
     mouseY: 0
   },
   section: {
+    prevIndex: 0,
     index: 0,
     anchor: ''
   },
@@ -21,6 +22,7 @@ const reducer = (state = initialState, action) => {
     case 'CHANGE_SECTION': 
       return Object.assign({}, state, {
         section: {
+          prevIndex: action.section.prevIndex,
           index: action.section.index,
           anchor: action.section.anchor
         }

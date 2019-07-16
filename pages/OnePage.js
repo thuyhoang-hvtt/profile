@@ -15,12 +15,13 @@ import { connect } from "react-redux";
 
 import ReactFullpage from "@fullpage/react-fullpage";
 import Contact from "./Contact";
+import Portforlio from "./Portforlio";
 
 
 class OnePage extends Component {
   onLeave(origin, destination, direction) {
     const { index, anchor } = destination;
-    this.props.changeSection({ index, anchor });
+    this.props.changeSection({ prevIndex: origin.index, index, anchor });
   }
 
   componentDidMount() {
@@ -35,6 +36,7 @@ class OnePage extends Component {
         anchors={["home", "about-me", "service", "portforlio", "contact", "footer"]}
         onLeave={this.onLeave.bind(this)}
         scrollOverflow={true}
+        navigation
         render={({ fullpageApi }) => (
           <ReactFullpage.Wrapper>
             <div className="onepage-container">
@@ -44,9 +46,8 @@ class OnePage extends Component {
               <Home/>
               <AboutMe />
               <Service/>
-              <div className="section">Haha</div>
+              <Portforlio/>
               <Contact/>
-              <div className="section">Haha</div>
             </div>
           </ReactFullpage.Wrapper>
         )}

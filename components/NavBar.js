@@ -4,8 +4,10 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 
 class NavBar extends Component {
+
   render() {
-    const { index, anchor } = this.props.section;
+    const { prevIndex, index, anchor } = this.props.section;
+
     return (
       <NavigationContainer
         className="nav-bar"
@@ -13,6 +15,7 @@ class NavBar extends Component {
         justify="start"
         align="middle"
         index={index}
+        visible={prevIndex >= index}
       >
         <Col span={3} />
         <Col span={12}>
@@ -70,7 +73,8 @@ const NavigationContainer = styled(Row)`
   position: absolute;
   width: 100%;
   z-index: 1100;
-  background: inherit;
+  background: transparent;
+
   ${props =>
     props.index > 0
       ? `
@@ -81,15 +85,16 @@ const NavigationContainer = styled(Row)`
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       filter: blur(16px);
-      box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 0 0 3000px rgba(255, 255, 255);
       z-index: -1;
     };
   `
       : `
     height: 108px;
   `}
+
+  ${props => props.visible ? `top: 0px;` : `top: -100px;`}
   overflow: hidden;
-  top: ${props => (props.index > 4 ? "-84px" : "0px")};
   transition: all 0.3s ease-in;
 `;
 

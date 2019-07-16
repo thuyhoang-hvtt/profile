@@ -2,19 +2,22 @@ import React from "react";
 import Link from "next/link";
 import Head from "next/head";
 import stylesheet from "antd/dist/antd.css";
+import dynamic from 'next/dynamic';
 
 // style scss
 import "scss/app.scss";
 
 // components
 import OnePage from "./OnePage";
-import NavBar from "components/NavBar";
+const NavBar = dynamic(import('components/NavBar'), {
+  ssr: false,
+});
 
 const App = props => (
-  <div className="app">
+  <div className="app" >
     <Head>
       <meta charSet="UTF-8" />
-      <title>Hello, NextJS!!!</title>
+      <title>Zeno - Portforlio | CV</title>
       <meta name="description" content={props.description || ""} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
@@ -39,7 +42,6 @@ const App = props => (
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
       />
       <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-      <script src="/static/scrolloverflow.js" />
     </Head>
     <NavBar/>
     <OnePage />
