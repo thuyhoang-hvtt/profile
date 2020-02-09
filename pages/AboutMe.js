@@ -37,19 +37,19 @@ export default class AboutMe extends Component {
         >
           <Col span={8}>
             <Knowledge>
-              <Text>ReactJS/NextJS</Text>
+              <Text>Web Front-end (ReactJS, NextJS, etc.)</Text>
               <StyledProgress
                 variant="determinate"
                 color="primary"
-                value={50}
+                value={77}
               />
             </Knowledge>
             <Knowledge>
-              <Text>NodeJS/NestJS</Text>
+              <Text>Web Back-end (NodeJS, NestJS)</Text>
               <StyledProgress
                 variant="determinate"
                 color="primary"
-                value={50}
+                value={60}
               />
             </Knowledge>
             <Knowledge>
@@ -57,29 +57,29 @@ export default class AboutMe extends Component {
               <StyledProgress
                 variant="determinate"
                 color="primary"
-                value={50}
+                value={72}
               />
             </Knowledge>
             <Knowledge>
-              <Text>Python/C++</Text>
+              <Text>Mathematics</Text>
               <StyledProgress
                 variant="determinate"
                 color="primary"
-                value={50}
+                value={80}
               />
             </Knowledge>
             <Knowledge>
-              <Text>Machine Learning</Text>
+              <Text>Programing Skills</Text>
               <StyledProgress
                 variant="determinate"
                 color="primary"
-                value={50}
+                value={85}
               />
             </Knowledge>
           </Col>
           <Content span={12}>
-            <Title variant="h1">About Me</Title>
-            <Text variant="h4" gutterBottom >Hi there, I'm Shin.</Text>
+            <Title variant="h1" gutterBottom>About Me</Title>
+            <Text variant="h4" gutterBottom >Hi there...</Text>
             <Text align="justify" paragraph>
               I've been dealing with a lot of projects while I'm a student 
               at HCMC University of Technology: Music App, Chatting App, Porforlio,
@@ -87,7 +87,8 @@ export default class AboutMe extends Component {
             </Text>
             <Text align="justify" paragraph>
               Beside, I'm very interested in Machine Learning and Big Data. 
-              I have 2-year-experience in mining data when I studied at my Lab at the university.
+              I already worked with Spark, Hadoop. 
+              Implementing well-known model using Keras, Tensorflow, etc.
             </Text>
             <Row type="flex" justify="center" align="middle">
               <Content span={12}>
@@ -97,7 +98,7 @@ export default class AboutMe extends Component {
                 </Info>
                 <Info variant="body1">
                   <LocationCityOutlined style={{ fontSize: 16, margin: 8 }} />Address:
-                  <Text>Phu Nhuan District, HCM City</Text>
+                  <Text>Tan Binh District, HCM City</Text>
                 </Info>
               </Content>
               <Content span={12}>
@@ -107,13 +108,13 @@ export default class AboutMe extends Component {
                 </Info>
                 <Info variant="body1">
                   <PhoneAndroidOutlined style={{ fontSize: 16, margin: 8 }} />Phone:
-                  <Text>(+84) 353 711 771</Text>
+                  <Text>(+84) 353 71 17 71</Text>
                 </Info>
               </Content>
             </Row>
-
           </Content>
         </Row>
+        <Blank height={64}/>
       </div>
     );
   }
@@ -124,6 +125,12 @@ const Knowledge = styled.div`
   width: 100%;
   padding-bottom: 16px ;
   display: block;
+`;
+
+const Blank = styled(Row)`
+  ${props =>  `
+    height: ${props.height}px;
+  `}
 `;
 
 const Content = styled(Col)`

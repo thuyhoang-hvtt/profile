@@ -8,8 +8,10 @@ import {
   RemoveRedEyeOutlined,
   Code,
   Alarm,
-  Flag
+  Flag,
+  AppsSharp
 } from "@material-ui/icons";
+import VideoPlayer from "../components/VideoPlayer";
 
 const StyledFab = withStyles(theme => ({
   root: {
@@ -30,7 +32,8 @@ const StyledFab = withStyles(theme => ({
 const works = [
   {
     direction: 'row',
-    img: 'static/test.png',
+    img: 'static/lofi-poster.png',
+    url: 'https://www.youtube.com/watch?v=btq_AlL2EPA',
     title: 'LofiSound',
     subtitle: 'Lofi sounds with noisy background',
     description: 'Improve focus and boost your productivity. Mix different sounds and create your perfect environment.',
@@ -40,26 +43,31 @@ const works = [
   },
   {
     direction: 'row-reverse',
-    img: 'static/test.png',
-    title: 'LofiSound',
-    subtitle: 'Lofi sounds with noisy background',
-    description: 'Improve focus and boost your productivity. Mix different sounds and create your perfect environment.',
-    knowledge: 'ReactJS, Redux, Firebase, FIrestore',
-    date: 'April 1st, 2019',
-    status: false
+    img: 'static/socket-chat.png',
+    url: '',
+    title: 'Bee Chating',
+    subtitle: 'Customer Support Manager',
+    description: 'Better handling your customer\'s feedback.',
+    knowledge: 'Java core, JavaFX, ReactJS, NodeJS',
+    date: 'October 1st, 2019',
+    status: true
+  },
+  {
+    direction: 'row',
+    img: 'static/cuda-poster.png',
+    url: '',
+    title: 'CUDA Programing',
+    subtitle: 'Parallelzing Recognition CNN Model',
+    description: 'Build a digit recognition from scratch with... CUDA in C++',
+    knowledge: 'C++, CUDA',
+    date: 'November 1st, 2019',
+    status: true
   }
 ]
 
 class Work extends Component {
   state = {
-    checked: false
-  };
-
-  toggleChecked = () => {
-    const { checked } = this.state;
-    this.setState({
-      checked: !checked
-    });
+    zoom: false
   };
 
   render() {
@@ -67,12 +75,14 @@ class Work extends Component {
       background,
       direction,
       img,
+      url,
       title,
       subtitle,
       description,
       knowledge,
       date,
-      status
+      status,
+      handleBackdrop
     } = this.props;
     return (
       <Grid
@@ -90,22 +100,22 @@ class Work extends Component {
             justify="center"
             alignItems="center"
             img={img}
-            onMouseEnter={this.toggleChecked}
-            onMouseLeave={this.toggleChecked}
+            onMouseEnter={() => this.setState({zoom: true})}
+            onMouseLeave={() => this.setState({zoom: false})}
           >
             <div className="overlay" />
             <Zoom
               ref={this}
-              in={this.state.checked}
+              in={this.state.zoom}
               direction="left"
               timeout={300}
             >
-              <StyledFab>
-                <Add />
+              <StyledFab >
+                <AppsSharp />
               </StyledFab>
             </Zoom>
-            <Zoom in={this.state.checked} direction="right" timeout={300}>
-              <StyledFab>
+            <Zoom in={this.state.zoom} direction="right" timeout={300}>
+              <StyledFab onClick={() => handleBackdrop(url)}>
                 <RemoveRedEyeOutlined />
               </StyledFab>
             </Zoom>
@@ -160,9 +170,34 @@ class Work extends Component {
 }
 
 export default class Portforlio extends Component {
+  state = {
+    player: {
+      open: false,
+      url: ''
+    }
+  }
+
+
+  handleBackdrop = (url) => {
+    const { open } = this.state.player
+    this.setState({
+      player: {
+        open: !open,
+        url
+      }
+    })
+  }
+
+
   render() {
+    const {open, url} = this.state.player
     return (
       <div className="section sectionFour">
+        <VideoPlayer 
+          open={open}
+          url={url}
+          handleBackdrop={this.handleBackdrop}
+        />
         <Grid container justify="center">
           <Grid item xs={9} style={{ margin: "100px 0" }}>
             <Typography variant="h3" gutterBottom>
@@ -183,9 +218,11 @@ export default class Portforlio extends Component {
               key={id}
               background={id % 2 === 0 ? '#ffffff' : '#f7f7f7'}
               {...workProps}
+              handleBackdrop={this.handleBackdrop}
             />
           ))
         }
+        
       </div>
     );
   }
@@ -242,6 +279,7 @@ const Info = styled(Typography)`
 
 const Text = styled(Typography)`
   padding-left: 10px;
-  color: #84f779;
+  color: #2e2d2c;
+  font-weight: bold;
   font-size: ${props => (props.size ? props.size + "px" : "16px")};
 `;

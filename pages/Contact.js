@@ -5,7 +5,8 @@ import {
   Card,
   TextField,
   Button,
-  Fab
+  Fab,
+  Link
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import {
@@ -15,7 +16,7 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import GoogleMaps from "../components/GoogleMaps";
-import { FaFacebook, FaGithub, FaPinterest, FaLinkedin } from 'react-icons/lib/fa';
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/lib/fa';
 
 const StyledText = withStyles(theme => ({
   root: {
@@ -183,7 +184,7 @@ export default class Contact extends Component {
                 <strong>Location</strong>
               </Typography>
               <Typography align="center">
-                Phu Nhuan District, HCM City
+                Tan Binh District, HCM City
               </Typography>
             </ContactCard>
           </Grid>
@@ -217,16 +218,32 @@ export default class Contact extends Component {
         </Grid>
         <Grid container>
           <Grid item xs={12} style={{ background: 'rgb(21, 33, 54)', padding: '120px 0', color: 'white' }}>
-            <Typography align="center" variant="h6" gutterBottom color="inherit">Kimi no Suizou wo Tabetai</Typography>
+            <Typography align="center" variant="h6" gutterBottom color="inherit">THANKS FOR YOUR VISIT</Typography>
             <Typography align="center">Life is a connection with somebody:</Typography>
             <Typography align="center">Be interested in someone else, be falling in love with someone else,</Typography>
             <Typography align="center">Be angry, be happy when sitting beside him.</Typography>
-            <Typography align="center" gutterBottom>Holding that one's hand and living inside the death.</Typography>
+            <Typography align="center" gutterBottom>Holding that hand and living inside the death.</Typography>
             <Grid container alignItems="center" justify="center">
-              <StyledFab><FaFacebook style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
-              <StyledFab><FaGithub style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
-              <StyledFab><FaPinterest style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
-              <StyledFab><FaLinkedin style={{ fontSize: 30, color: '#eee'  }}/></StyledFab>
+              <Link href="https://www.facebook.com/shin.hvtt" target="_blank">
+                <StyledFab>
+                  <FaFacebook style={{ fontSize: 30, color: '#eee'  }}/>
+                </StyledFab>
+              </Link>
+              <Link href="https://github.com/thuyhoang-hvtt" target="_blank">
+                <StyledFab>
+                  <FaGithub style={{ fontSize: 30, color: '#eee'  }}/>
+                </StyledFab>
+              </Link>
+              <Link href="https://twitter.com/thuyhoang_hvtt" target="_blank">
+                <StyledFab>
+                  <FaTwitter style={{ fontSize: 30, color: '#eee'  }}/>
+                </StyledFab>
+              </Link>
+              <Link href="https://www.linkedin.com/in/thụy-hoàng-14568b18b/" target="_blank">
+                <StyledFab>
+                  <FaLinkedin style={{ fontSize: 30, color: '#eee'  }}/>
+                </StyledFab>
+              </Link>
             </Grid>
           </Grid>
           <Grid item xs={12} alignContent="center" style={{ background: 'rgb(28, 41, 64)'}}>
@@ -243,6 +260,8 @@ const ContactCard = styled(Card)`
   min-height: 230px;
   padding: 32px;
 `;
+
+
 
 
 

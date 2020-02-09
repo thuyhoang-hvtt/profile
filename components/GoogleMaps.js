@@ -11,7 +11,7 @@ const mapStyles = {
 
 class GoogleMaps extends Component {
   render() {
-    const initialCenter = { lat: 10.802267, lng: 106.690810 };
+    const initialCenter = { lat: 10.7942634, lng: 106.6608402 };
     return (
       <Map
         style={mapStyles}

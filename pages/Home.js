@@ -68,7 +68,7 @@ class Home extends Component {
             <Blank></Blank>
             <Greeting>Hello, I'm</Greeting>
             <Name>Thuy Hoang</Name>
-            <Description>A Freelance Web Developer & Data Scientist</Description>
+            <Description>A Developer have passion for Web & Data.</Description>
             <StyledButton variant="contained" color="primary">View My Work</StyledButton>
           </Content>
           <Col span={8}></Col>

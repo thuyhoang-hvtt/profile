@@ -83,15 +83,15 @@ export default class Service extends Component {
         <Grid container justify="center" style={{ margin: '120px 0 32px'}}>
           <Grid item xs={12}>
             <Typography variant="h3" align="center" gutterBottom>
-              My Service
+              My Hobbies
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" align="center">
-              Sworld Art Online
+              Change your thoughts..
             </Typography>
             <Typography variant="body1" align="center" gutterBottom>
-              I always be alone cause I scare to lose people around me!!
+              And you change your world!
             </Typography>
           </Grid>
         </Grid>
@@ -103,10 +103,10 @@ export default class Service extends Component {
                   <LaptopMac style={{ fontSize: 72, color: "#754ef9" }} />
                 </Typography>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Web Development
+                  Front-end Web
                 </Typography>
                 <Typography align="center">
-                  There is a reason that I came acrossing this world.
+                  JavaScript, React Hook, NextJS, etc.
                 </Typography>
               </CardContent>
             </ServiceCard>
@@ -118,10 +118,10 @@ export default class Service extends Component {
                   <PhoneIphone style={{ fontSize: 72, color: "#754ef9" }} />
                 </Typography>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Mobile Development
+                  Back-end Web
                 </Typography>
                 <Typography align="center">
-                  There is a reason that I came acrossing this world.
+                  Java, NodeJS, NestJS, etc.
                 </Typography>
               </CardContent>
             </ServiceCard>
@@ -133,10 +133,10 @@ export default class Service extends Component {
                   <FaGamepad style={{ fontSize: 72, color: "#754ef9" }} />
                 </Typography>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Unity Development
+                  Desktop Development
                 </Typography>
                 <Typography align="center">
-                  There is a reason that I came acrossing this world.
+                  Java SE, JavaFX, C#, ElectronJS
                 </Typography>
               </CardContent>
             </ServiceCard>
@@ -150,10 +150,10 @@ export default class Service extends Component {
                   <FaLineChart style={{ fontSize: 72, color: "#754ef9" }} />
                 </Typography>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Data Analytics
+                  Data Science
                 </Typography>
                 <Typography align="center">
-                  There is a reason that I came acrossing this world.
+                  Apache Hadoop, Apache Spark, etc.
                 </Typography>
               </CardContent>
             </ServiceCard>
@@ -165,10 +165,10 @@ export default class Service extends Component {
                   <DLIcon style={{ fontSize: 72, color: "#754ef9" }} />
                 </Typography>
                 <Typography align="center" variant="h5" gutterBottom>
-                  Aritificial Intelligence
+                  Machine Learning
                 </Typography>
                 <Typography align="center">
-                  There is a reason that I came acrossing this world.
+                  Supervised/Unsupervised learning algorithms, cost optimization, deep learning, etc.
                 </Typography>
               </CardContent>
             </ServiceCard>
@@ -185,7 +185,7 @@ export default class Service extends Component {
                   Q&A
                 </Typography>
                 <Typography align="center">
-                  There is a reason that I came acrossing this world.
+                  Do not hesitate to contact me if you have any question!
                 </Typography>
               </CardContent>
             </ServiceCard>
@@ -201,12 +201,12 @@ export default class Service extends Component {
             </Grid>
             <Grid item xs={12}>
               <Typography align="center">
-                No Game No Life
+                No Code No Life
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography align="center" style={{ paddingBottom: 48 }}>
-                There is a reason that I came across in this world.
+                Life can only understood backwards, but it must be lived forwards.
               </Typography>
             </Grid>
             <Grid container xs={2} justify="center">
